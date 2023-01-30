@@ -1,0 +1,60 @@
+const data = [
+  {
+    oneImgDesign: true,
+    img1: "https://i.pinimg.com/736x/44/43/ad/4443ade9741f492a3c7f8ff66829ea5e.jpg",
+    img2: "",
+    img3: "",
+    upTitle: "Calendario de limpieza",
+    title: "¿Cuál es el mejor día para arreglar la casa?",
+  },
+  {
+    oneImgDesign: false,
+    img1: "https://i.pinimg.com/736x/52/0c/28/520c284b9892cd55283f7a02949bc977.jpg",
+    img2: "https://i.pinimg.com/736x/00/ad/b6/00adb68f7eee01218000f92f7ac7e8c1.jpg",
+    img3: "https://i.pinimg.com/736x/b5/85/6c/b5856c579641dd8bec42b7a7b6a94659.jpg",
+    upTitle: "El año de conejo",
+    title: "¡Feliz Año Nuevo chino!",
+  },
+  {
+    oneImgDesign: true,
+    img1: "https://i.pinimg.com/736x/3c/05/67/3c05675b04ee51eadb56de7bdbff9b8d.jpg",
+    img2: "",
+    img3: "",
+    upTitle: "¿Acepta$ el reto?",
+    title: "Tips para guardar dinero",
+  },
+  {
+    oneImgDesign: true,
+    img1: "https://i.pinimg.com/736x/1d/18/2a/1d182a987ed9147176d11e6d1c65902d.jpg",
+    img2: "",
+    img3: "",
+    upTitle: "Planifica con estilo",
+    title: "Montando tu propio planificador de agenda",
+  },
+  {
+    oneImgDesign: true,
+    img1: "https://i.pinimg.com/736x/37/28/6c/37286cbdd84b982b5505953df9b3fead.jpg",
+    img2: "",
+    img3: "",
+    upTitle: "Harmonía del hogar",
+    title: "Técnicas de feng shui para tu casa",
+  },
+  {
+    oneImgDesign: true,
+    img1: "https://i.pinimg.com/736x/e5/78/a5/e578a5485f3f3395b5f28f44af2be9e4.jpg",
+    img2: "",
+    img3: "",
+    upTitle: "Dibujos coloridos",
+    title: "Aura para fondos de pantalla",
+  },
+  {
+    oneImgDesign: true,
+    img1: "https://i.pinimg.com/736x/2f/c3/f7/2fc3f71dc82c722fa61b569b170dd750.jpg",
+    img2: "",
+    img3: "",
+    upTitle: "Sushi aesthetic",
+    title: "Preparando comida japonesa con estilo",
+  },
+];
+
+export default data;
