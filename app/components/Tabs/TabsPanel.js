@@ -1,4 +1,3 @@
-import {useState} from "react";
 import {
   Tabs,
   Button,
@@ -14,17 +13,11 @@ import {
 
 import SettingsIcon from "../assets/settings.png";
 import PlusIcon from "../assets/plus.png";
-
-import IconButton from "./IconButton";
-import PinSavesCard from "./PinSavesCard";
-import data from "./pinApi";
+import IconButton from "../Buttons/IconButton";
+import PinSavesCard from "../Cards/PinSavesCard";
+import data from "../pinApi";
 
 function TabsPanel() {
-  const [selectedTab, setSelectedTab] = useState({
-    Tab1: false,
-    Tab2: true,
-  });
-
   const pins = data;
 
   return (
@@ -52,14 +45,6 @@ function TabsPanel() {
           pb={5}
         >
           Creados
-          {/* <Stack mt={5} px={5}>
-            <Stack
-              bgColor={selectedTab.Tab1 ? "#111" : "transparent"}
-              borderRadius="20px"
-              py={2}
-              width={"100%"}
-            />
-          </Stack> */}
         </Tab>
         <Tab
           _selected={{borderBottom: "4px solid #111"}}
@@ -76,14 +61,6 @@ function TabsPanel() {
           pb={5}
         >
           Guardados
-          {/* <Stack mt={5} px={5}>
-            <Stack
-              bgColor={selectedTab.Tab2 ? "#111" : "transparent"}
-              borderRadius="20px"
-              py={2}
-              width={"100%"}
-            />
-          </Stack> */}
         </Tab>
       </TabList>
       <TabPanels>

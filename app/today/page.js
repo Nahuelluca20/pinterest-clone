@@ -3,10 +3,10 @@ import Image from "next/image";
 import {Grid, Heading, Stack, Text, Link} from "@chakra-ui/react";
 import NextLink from "next/link";
 
-import TodayCard from "../components/TodayCard";
-import TodayCard3img from "../components/TodayCard3img";
-import Check from "../assets/check.png";
-import ButtonHovered from "../components/ButtonHovered";
+import TodayCard from "../components/Cards/TodayCard";
+import TodayCard3img from "../components/Cards/TodayCard3img";
+import Check from "../components/assets/check.png";
+import ButtonHovered from "../components/Buttons/ButtonHovered";
 
 import data from "./TodaCardData";
 
@@ -76,6 +76,9 @@ function Today() {
             <ButtonHovered
               bgColor={"#efefef"}
               bgColorHover={"#e2e2e2"}
+              fontWeight={600}
+              px={"16px"}
+              py={"15px"}
               text={"Ir al feed de inicio"}
             />
           </Link>

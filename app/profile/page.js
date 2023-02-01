@@ -1,9 +1,9 @@
 "use client";
-import {Heading, Stack, Text, Button, HStack} from "@chakra-ui/react";
+import {Heading, Stack, Text, HStack} from "@chakra-ui/react";
 
-import TabsPanel from "../components/TabsPanel";
-import ButtonHovered from "../components/ButtonHovered";
-import FollowingModal from "../components/FollowingModal";
+import TabsPanel from "../components/Tabs/TabsPanel";
+import ButtonHovered from "../components/Buttons/ButtonHovered";
+import FollowingModal from "../components/Modals/FollowingModal";
 
 function Profile() {
   return (
@@ -24,8 +24,22 @@ function Profile() {
         </Text>
         <FollowingModal />
         <HStack pt={10}>
-          <ButtonHovered bgColor={"#efefef"} bgColorHover={"#e2e2e2"} text={"Compartir"} />
-          <ButtonHovered bgColor={"#efefef"} bgColorHover={"#e2e2e2"} text={"Editar perfil"} />
+          <ButtonHovered
+            bgColor={"#efefef"}
+            bgColorHover={"#e2e2e2"}
+            fontWeight={600}
+            px={"16px"}
+            py={"15px"}
+            text={"Compartir"}
+          />
+          <ButtonHovered
+            bgColor={"#efefef"}
+            bgColorHover={"#e2e2e2"}
+            fontWeight={600}
+            px={"16px"}
+            py={"15px"}
+            text={"Editar perfil"}
+          />
         </HStack>
         <TabsPanel />
       </Stack>

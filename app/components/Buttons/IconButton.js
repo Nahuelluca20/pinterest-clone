@@ -1,7 +1,7 @@
 import {Stack, Tooltip} from "@chakra-ui/react";
 import Image from "next/image";
 
-function IconButton({img, alt, label, imgHeight, imgWidth}) {
+function IconButton({img, alt, label, mtTooltip, imgHeight, imgWidth}) {
   return (
     <Tooltip
       aria-label={label}
@@ -10,6 +10,7 @@ function IconButton({img, alt, label, imgHeight, imgWidth}) {
       color="white"
       fontSize={"13px"}
       label={label}
+      mt={mtTooltip}
       p={10}
     >
       <Stack

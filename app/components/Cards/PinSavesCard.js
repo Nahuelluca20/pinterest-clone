@@ -6,11 +6,11 @@ function PinSavesCard({pinName, totalPins, lastModificated, img1, img2, img3}) {
       <Stack borderRadius={"15px"} height={"157px"} overflow={"hidden"} spacing={0} width={"233px"}>
         <Flex>
           <Stack mr={"2px"} width={"100%"}>
-            <img height={157} src={img1} width={"100%"} />
+            <img height={157} src={img1} style={{objectFit: "cover"}} width={"100%"} />
           </Stack>
           <Stack height={"100%"} justifyContent={"space-between"} spacing={"2px"}>
-            <img height={78} src={img2} width={77} />
-            <img height={78} src={img3} width={77} />
+            <img height={78} src={img2} style={{objectFit: "cover"}} width={77} />
+            <img height={78} src={img3} style={{objectFit: "cover"}} width={77} />
           </Stack>
         </Flex>
       </Stack>

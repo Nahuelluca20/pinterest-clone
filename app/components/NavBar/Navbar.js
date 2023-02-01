@@ -1,19 +1,18 @@
 "use-client";
 import {useState} from "react";
-import {Stack, Link, HStack, Heading, Text, Input, Tooltip} from "@chakra-ui/react";
+import {Stack, Link, HStack, Heading, Text, Tooltip} from "@chakra-ui/react";
 import NextLink from "next/link";
-import Image from "next/image";
-import {ChevronDownIcon, SearchIcon} from "@chakra-ui/icons";
+import {ChevronDownIcon} from "@chakra-ui/icons";
 
 import NavbarLogo from "../assets/logo.png";
-import SearchLogo from "../assets/search.png";
 import BellLogo from "../assets/bell.png";
 import UploadLogo from "../assets/upload.png";
+import LinkButton from "../Buttons/LinkButton";
+import IconButton from "../Buttons/IconButton";
 
-import LinkButton from "./LinkButton";
-import IconButton from "./IconButton";
+import SearchBar from "./SearchBar";
 
-function Navbar() {
+function Navbar({onClick}) {
   const [isSelected, setIsSelected] = useState({
     inicio: false,
     hoy: false,
@@ -21,10 +20,10 @@ function Navbar() {
   const [open, setOpen] = useState(false);
 
   function handleSelected(e) {
+    onClick(false);
     if (open) {
       setOpen(false);
     }
-
     if (e === "Inicio") {
       setIsSelected({
         inicio: true,
@@ -39,7 +38,7 @@ function Navbar() {
   }
 
   return (
-    <HStack spacing={2}>
+    <HStack bg={"white"} position={"fixed"} py={"16px"} spacing={10} width={"100%"} zIndex={50}>
       <Link as={NextLink} href="/">
         <IconButton alt={"pinterest"} img={NavbarLogo} imgHeight={24} imgWidth={24} label="" />
       </Link>
@@ -109,23 +108,7 @@ function Navbar() {
           </Text>
         </Stack>
       </Link>
-      <HStack alignItems="center" justifyContent="center" spacing={0} width={"100%"}>
-        <Stack mr={"-40px"} zIndex={10}>
-          <Image alt="search" height={25} src={SearchLogo} width={25} />
-        </Stack>
-        <Input
-          bgColor={"#efefef"}
-          border="none"
-          borderRadius={"100px"}
-          pl={"50px"}
-          placeholder="Buscar"
-          pr={"20px"}
-          py={"20px"}
-          type="text"
-          width={"90%"}
-        />
-      </HStack>
-
+      <SearchBar onClick={onClick} />
       <HStack>
         <IconButton
           alt={"Notificaciones"}
@@ -133,6 +116,7 @@ function Navbar() {
           imgHeight={24}
           imgWidth={24}
           label={"Notificaciones"}
+          mtTooltip={10}
         />
 
         <IconButton
@@ -141,6 +125,7 @@ function Navbar() {
           imgHeight={24}
           imgWidth={24}
           label={"Subir Imagen"}
+          mtTooltip={10}
         />
 
         <Tooltip
@@ -151,6 +136,7 @@ function Navbar() {
           fontSize={"13px"}
           label="Tu perfil"
           mr={10}
+          mt={10}
           p={10}
         >
           <Link
@@ -159,12 +145,13 @@ function Navbar() {
             pr={5}
             textAlign={"center"}
             textDecoration={"none"}
-            onClick={() =>
+            onClick={() => {
+              onClick(false);
               setIsSelected({
                 inicio: false,
                 hoy: false,
-              })
-            }
+              });
+            }}
           >
             <Stack cursor={"pointer"}>
               <img
