@@ -2,6 +2,8 @@
 import {Heading, Stack, Text, Button, HStack} from "@chakra-ui/react";
 
 import TabsPanel from "../components/TabsPanel";
+import ButtonHovered from "../components/ButtonHovered";
+import FollowingModal from "../components/FollowingModal";
 
 function Profile() {
   return (
@@ -20,42 +22,10 @@ function Profile() {
         <Text color="#5f5f5f" fontSize={"14px"} fontWeight={400}>
           @pepeGrillo
         </Text>
-        <Text color="#111" cursor={"pointer"} fontSize={"16px"} fontWeight={600}>
-          Siguiendo a 2
-        </Text>
+        <FollowingModal />
         <HStack pt={10}>
-          <Button
-            _hover={{
-              background: "#e2e2e2",
-            }}
-            bgColor={"#efefef"}
-            border="none"
-            borderRadius={"24px"}
-            color={"#111"}
-            cursor={"pointer"}
-            fontSize={"16px"}
-            fontWeight={600}
-            px={"16px"}
-            py={"15px"}
-          >
-            Compartir
-          </Button>
-          <Button
-            _hover={{
-              background: "#e2e2e2",
-            }}
-            bgColor={"#efefef"}
-            border="none"
-            borderRadius={"24px"}
-            color={"#111"}
-            cursor={"pointer"}
-            fontSize={"16px"}
-            fontWeight={600}
-            px={"16px"}
-            py={"15px"}
-          >
-            Editar perfil
-          </Button>
+          <ButtonHovered bgColor={"#efefef"} bgColorHover={"#e2e2e2"} text={"Compartir"} />
+          <ButtonHovered bgColor={"#efefef"} bgColorHover={"#e2e2e2"} text={"Editar perfil"} />
         </HStack>
         <TabsPanel />
       </Stack>
