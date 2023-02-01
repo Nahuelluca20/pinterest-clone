@@ -2,7 +2,7 @@ import {useState} from "react";
 import {Stack, Link, HStack, Heading, Text} from "@chakra-ui/react";
 import NextLink from "next/link";
 import Image from "next/image";
-import {ChevronDownIcon} from "@chakra-ui/icons";
+import {ChevronDownIcon, SearchIcon} from "@chakra-ui/icons";
 
 import NavbarLogo from "../assets/logo.png";
 
@@ -139,6 +139,9 @@ function Navbar() {
           </Text>
         </Stack>
       </Link>
+      <Stack>
+        <SearchIcon height={50} width={60} />
+      </Stack>
     </HStack>
   );
 }
