@@ -1,10 +1,17 @@
+"use-client";
 import {useState} from "react";
-import {Stack, Link, HStack, Heading, Text} from "@chakra-ui/react";
+import {Stack, Link, HStack, Heading, Text, Input, Tooltip} from "@chakra-ui/react";
 import NextLink from "next/link";
 import Image from "next/image";
 import {ChevronDownIcon, SearchIcon} from "@chakra-ui/icons";
 
 import NavbarLogo from "../assets/logo.png";
+import SearchLogo from "../assets/search.png";
+import BellLogo from "../assets/bell.png";
+import UploadLogo from "../assets/upload.png";
+
+import LinkButton from "./LinkButton";
+import IconButton from "./IconButton";
 
 function Navbar() {
   const [isSelected, setIsSelected] = useState({
@@ -34,59 +41,22 @@ function Navbar() {
   return (
     <HStack spacing={2}>
       <Link as={NextLink} href="/">
-        <Stack
-          _hover={{
-            cursor: "pointer",
-            background: "rgba(0,0,0,0.06)",
-          }}
-          align={"center"}
-          height={48}
-          justifyContent={"center"}
-          rounded={"100%"}
-          transition={"transition: transform 85ms ease-out;"}
-          width={48}
-        >
-          <Image alt="Picture of the author" height={24} src={NavbarLogo} width={24} />
-        </Stack>
+        <IconButton alt={"pinterest"} img={NavbarLogo} imgHeight={24} imgWidth={24} label="" />
       </Link>
-      <Link
-        as={NextLink}
+      <LinkButton
+        bgColor={isSelected.inicio ? "#111111" : "trasparent"}
         color={isSelected.inicio ? "white" : "#111"}
-        href="/"
-        textAlign={"center"}
-        textDecoration={"none"}
-        onClick={(e) => handleSelected(e.target.innerText)}
-      >
-        <Stack
-          bg={isSelected.inicio ? "#111111" : "trasparent"}
-          borderRadius={"24px"}
-          spacing={0}
-          width={"72px"}
-        >
-          <Heading as={"h2"} fontSize={"16px"} fontWeight={600}>
-            Inicio
-          </Heading>
-        </Stack>
-      </Link>
-      <Link
-        as={NextLink}
+        href={"/"}
+        text={"Inicio"}
+        onClick={handleSelected}
+      />
+      <LinkButton
+        bgColor={isSelected.hoy ? "#111111" : "trasparent"}
         color={isSelected.hoy ? "white" : "#111"}
-        href="/today"
-        textAlign={"center"}
-        textDecoration={"none"}
-        onClick={(e) => handleSelected(e.target.innerText)}
-      >
-        <Stack
-          bg={isSelected.hoy ? "#111111" : "trasparent"}
-          borderRadius={"24px"}
-          spacing={0}
-          width={"72px"}
-        >
-          <Heading as={"h2"} fontSize={"16px"} fontWeight={600}>
-            Hoy
-          </Heading>
-        </Stack>
-      </Link>
+        href={"/today"}
+        text={"Hoy"}
+        onClick={handleSelected}
+      />
       <Link color={"#111"} cursor={"pointer"} textAlign={"center"} textDecoration={"none"}>
         <HStack
           bg={"trasparent"}
@@ -139,9 +109,75 @@ function Navbar() {
           </Text>
         </Stack>
       </Link>
-      <Stack>
-        <SearchIcon height={50} width={60} />
-      </Stack>
+      <HStack alignItems="center" justifyContent="center" spacing={0} width={"100%"}>
+        <Stack mr={"-40px"} zIndex={10}>
+          <Image alt="search" height={25} src={SearchLogo} width={25} />
+        </Stack>
+        <Input
+          bgColor={"#efefef"}
+          border="none"
+          borderRadius={"100px"}
+          pl={"50px"}
+          placeholder="Buscar"
+          pr={"20px"}
+          py={"20px"}
+          type="text"
+          width={"90%"}
+        />
+      </HStack>
+
+      <HStack>
+        <IconButton
+          alt={"Notificaciones"}
+          img={BellLogo}
+          imgHeight={24}
+          imgWidth={24}
+          label={"Notificaciones"}
+        />
+
+        <IconButton
+          alt={"Subir Imagen"}
+          img={UploadLogo}
+          imgHeight={24}
+          imgWidth={24}
+          label={"Subir Imagen"}
+        />
+
+        <Tooltip
+          aria-label={"Tu perfil"}
+          bg="black"
+          borderRadius={"10px"}
+          color="white"
+          fontSize={"13px"}
+          label="Tu perfil"
+          mr={10}
+          p={10}
+        >
+          <Link
+            as={NextLink}
+            href="/profile"
+            pr={5}
+            textAlign={"center"}
+            textDecoration={"none"}
+            onClick={() =>
+              setIsSelected({
+                inicio: false,
+                hoy: false,
+              })
+            }
+          >
+            <Stack cursor={"pointer"}>
+              <img
+                alt="Picture of the author"
+                height={50}
+                src="https://disneynews.us/wp-content/uploads/2019/11/Jiminy-Cricket-Pinocchio-disney-289x300.jpg"
+                style={{borderRadius: "100px"}}
+                width={50}
+              />
+            </Stack>
+          </Link>
+        </Tooltip>
+      </HStack>
     </HStack>
   );
 }
