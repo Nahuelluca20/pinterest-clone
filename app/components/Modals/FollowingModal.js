@@ -30,8 +30,8 @@ function FollowingModal() {
         p={50}
         position={"fixed"}
         spacing={0}
-        style={{marginTop: "-0.5rem", overflow: "hidden"}}
-        top={0}
+        style={{overflow: "hidden"}}
+        top={{base: "-8px", lg: "0"}}
         width={"100%"}
         zIndex={1}
       >
@@ -40,11 +40,17 @@ function FollowingModal() {
             alignItems={"center"}
             bgColor={"white"}
             borderRadius={"16px"}
-            height={"264px"}
+            height={{base: "370px", md: "264px"}}
             mt={"-80px"}
-            width={"552px"}
+            width={{base: "300px", md: "552px"}}
           >
-            <Stack pb={"24px"} pt={"48px"} px={"24px"} spacing={0} width={"456px"}>
+            <Stack
+              pb={"24px"}
+              pt={"40px"}
+              px={"24px"}
+              spacing={0}
+              width={{base: "270px", md: "456px"}}
+            >
               <HStack justifyContent={"space-between"} spacing={0} width={"100%"}>
                 <Stack w={"54px"} />
                 <Text color={"#111"} fontSize={"28px"} fontWeight={600}>
@@ -54,13 +60,15 @@ function FollowingModal() {
                   <IconButton
                     alt={"Subir Imagen"}
                     img={CrossLogo}
+                    imgContainerHeight={"48px"}
+                    imgContainerWidth={"48px"}
                     imgHeight={15}
                     imgWidth={15}
-                    label={"Subir Imagen"}
+                    label={"Cerrar"}
                   />
                 </div>
               </HStack>
-              <Stack pt={40} spacing={4}>
+              <Stack pt={8} spacing={{base: "70px", md: 4}}>
                 <FolloweingUserBox
                   img="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/6716d046-9f32-405b-aebf-7ee808533572/ddzg4i4-1029ca4a-dd1f-4654-8b3d-dea9ff6ebf18.png/v1/fill/w_1920,h_1955,q_80,strp/geppetto_by_p_fritz_ddzg4i4-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTk1NSIsInBhdGgiOiJcL2ZcLzY3MTZkMDQ2LTlmMzItNDA1Yi1hZWJmLTdlZTgwODUzMzU3MlwvZGR6ZzRpNC0xMDI5Y2E0YS1kZDFmLTQ2NTQtOGIzZC1kZWE5ZmY2ZWJmMTgucG5nIiwid2lkdGgiOiI8PTE5MjAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.kXv8IYSjTsD9LaAqXIdTUJR2IgjGYUIfIk8NuUfAPSY"
                   userName={"Geppetto"}

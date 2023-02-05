@@ -1,7 +1,16 @@
 import {Stack, Tooltip} from "@chakra-ui/react";
 import Image from "next/image";
 
-function IconButton({img, alt, label, mtTooltip, imgHeight, imgWidth}) {
+function IconButton({
+  img,
+  alt,
+  label,
+  mtTooltip,
+  imgHeight,
+  imgWidth,
+  imgContainerHeight,
+  imgContainerWidth,
+}) {
   return (
     <Tooltip
       aria-label={label}
@@ -11,7 +20,7 @@ function IconButton({img, alt, label, mtTooltip, imgHeight, imgWidth}) {
       fontSize={"13px"}
       label={label}
       mt={mtTooltip}
-      p={10}
+      p={2}
     >
       <Stack
         _hover={{
@@ -20,11 +29,11 @@ function IconButton({img, alt, label, mtTooltip, imgHeight, imgWidth}) {
         }}
         align={"center"}
         aria-label="Close"
-        height={48}
+        height={imgContainerHeight}
         justifyContent={"center"}
-        rounded={"100%"}
+        rounded={"999%"}
         transition={"transition: transform 85ms ease-out;"}
-        width={48}
+        width={imgContainerWidth}
       >
         <Image alt={alt} height={imgHeight} src={img} width={imgWidth} />
       </Stack>

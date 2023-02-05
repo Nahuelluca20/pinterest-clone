@@ -23,7 +23,7 @@ function RecentlySearch({text, onDelete, id}) {
     >
       {text}
       <Box ml={10} onClick={() => onDelete(id)}>
-        <Image height={11} src={CrossIcon} width={11} />
+        <Image alt="cross" height={11} src={CrossIcon} width={11} />
       </Box>
     </Button>
   );

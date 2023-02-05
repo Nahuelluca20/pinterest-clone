@@ -8,7 +8,7 @@ function TodayCard({title, upTitle, img1}) {
       cursor={"pointer"}
       height={"306px"}
       spacing={0}
-      width={"408px"}
+      width={{base: "350px", md: "408px"}}
       zIndex={10}
     >
       <Stack
@@ -17,10 +17,10 @@ function TodayCard({title, upTitle, img1}) {
         overflow={"hidden"}
         position={"absolute"}
         spacing={0}
-        width={"408px"}
+        width={{base: "350px", md: "408px"}}
         zIndex={-10}
       >
-        <img height={"306px"} src={img1} style={{objectFit: "cover"}} width={"408px"} />
+        <img height={"306px"} src={img1} style={{objectFit: "cover"}} width={"100%"} />
       </Stack>
       <Stack
         _hover={{background: "rgba(0,0,0,0.06)"}}
@@ -31,7 +31,7 @@ function TodayCard({title, upTitle, img1}) {
         justifyContent={"end"}
         overflow={"hidden"}
         spacing={0}
-        width={"408px"}
+        width={{base: "350px", md: "408px"}}
         zIndex={1}
       >
         <Stack pb={20} spacing={0}>

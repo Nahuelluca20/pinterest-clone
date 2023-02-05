@@ -25,11 +25,11 @@ function TabsPanel() {
       defaultIndex={1}
       display={"block"}
       justifyContent={"center"}
-      pt={20}
+      pt={10}
       variant="unstyled"
       width={"100%"}
     >
-      <TabList justifyContent={"center"} spacing={10}>
+      <TabList justifyContent={"center"} spacing={0}>
         <Tab
           _selected={{borderBottom: "4px solid #111"}}
           bg={"transparent"}
@@ -41,8 +41,8 @@ function TabsPanel() {
           fontSize={"16px"}
           fontWeight={600}
           justifyContent={"center"}
-          mr={10}
-          pb={5}
+          mr={5}
+          pb={2}
         >
           Creados
         </Tab>
@@ -57,8 +57,8 @@ function TabsPanel() {
           fontSize={"16px"}
           fontWeight={600}
           justifyContent={"center"}
-          ml={10}
-          pb={5}
+          mr={5}
+          pb={2}
         >
           Guardados
         </Tab>
@@ -88,12 +88,36 @@ function TabsPanel() {
           </Stack>
         </TabPanel>
         <TabPanel>
-          <Stack mt={"50px"} width={"100%"}>
-            <HStack justifyContent={"space-between"} px={10}>
-              <IconButton alt={""} img={SettingsIcon} imgHeight={20} imgWidth={20} label={""} />
-              <IconButton alt={""} img={PlusIcon} imgHeight={20} imgWidth={20} label={""} />
+          <Stack mt={"15px"} width={"100%"}>
+            <HStack justifyContent={"space-between"} px={{base: 0, lg: 10}}>
+              <IconButton
+                alt={""}
+                img={SettingsIcon}
+                imgContainerHeight={"48px"}
+                imgContainerWidth={"48px"}
+                imgHeight={20}
+                imgWidth={20}
+                label={""}
+              />
+              <IconButton
+                alt={""}
+                img={PlusIcon}
+                imgContainerHeight={"48px"}
+                imgContainerWidth={"48px"}
+                imgHeight={20}
+                imgWidth={20}
+                label={""}
+              />
             </HStack>
-            <Flex justifyContent={"space-between"} px={50} py={10}>
+            <Flex
+              display={{base: "grid", lg: "flex"}}
+              flexWrap={"wrap"}
+              gridTemplateColumns={{md: "repeat(2, 1fr)"}}
+              justifyContent={{base: "center", md: "startbetween", lg: "space-between"}}
+              justifyItems={"center"}
+              px={{base: "0px", lg: "70px"}}
+              py={10}
+            >
               {pins.map((item) => {
                 return (
                   <PinSavesCard

@@ -1,6 +1,6 @@
 import {Button} from "@chakra-ui/react";
 
-function ButtonHovered({bgColor, bgColorHover, text, px, py, fontWeight}) {
+function ButtonHovered({bgColor, bgColorHover, text, px, py, fontWeight, colorText}) {
   return (
     <Button
       _hover={{
@@ -9,7 +9,7 @@ function ButtonHovered({bgColor, bgColorHover, text, px, py, fontWeight}) {
       bgColor={bgColor}
       border="none"
       borderRadius={"24px"}
-      color={"#111"}
+      color={colorText}
       cursor={"pointer"}
       fontSize={"16px"}
       fontWeight={fontWeight}

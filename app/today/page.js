@@ -14,8 +14,8 @@ function Today() {
   const cardData = data;
 
   return (
-    <Stack alignItems={"center"} width={"100%"}>
-      <Stack mt={"20px"} spacing={0} textAlign={"center"} width={"865px"}>
+    <Stack alignItems={"center"} px={{base: "20px"}} width={"100%"}>
+      <Stack mt={"20px"} spacing={0} textAlign={"center"} width={{base: "100%", lg: "875px"}}>
         <Heading color={"#111"} fontSize={"20px"} fontWeight={400} mb={0}>
           29 de enero de 2023
         </Heading>
@@ -26,8 +26,9 @@ function Today() {
           flexWrap={"wrap"}
           gap={"16px"}
           justifyContent={"center"}
+          maxW={"900px"}
           pt={30}
-          templateColumns="repeat(2, 408px)"
+          templateColumns={["repeat(1,  1fr)", "repeat(1,  1fr)", "repeat(2,  408px)"]}
         >
           {cardData.map((item) => {
             if (item.oneImgDesign) {
@@ -66,16 +67,17 @@ function Today() {
           width={"100%"}
         >
           <Image alt={"todat"} height={30} src={Check} width={30} />
-          <Text fontSize={"16px"} fontWeight={400} pt={20}>
+          <Text fontSize={"16px"} fontWeight={400} pt={5}>
             ¡Es todo por hoy!
           </Text>
-          <Text fontSize={"20px"} fontWeight={600} pt={20}>
+          <Text fontSize={"20px"} fontWeight={600} pt={5}>
             Vuelve mañana para encontrar más inspiración
           </Text>
           <Link as={NextLink} href="/" pt={30} style={{textDecoration: "none"}}>
             <ButtonHovered
               bgColor={"#efefef"}
               bgColorHover={"#e2e2e2"}
+              colorText={"#111"}
               fontWeight={600}
               px={"16px"}
               py={"15px"}

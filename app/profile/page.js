@@ -23,10 +23,11 @@ function Profile() {
           @pepeGrillo
         </Text>
         <FollowingModal />
-        <HStack pt={10}>
+        <HStack pt={5}>
           <ButtonHovered
             bgColor={"#efefef"}
             bgColorHover={"#e2e2e2"}
+            colorText={"#11"}
             fontWeight={600}
             px={"16px"}
             py={"15px"}
@@ -35,6 +36,7 @@ function Profile() {
           <ButtonHovered
             bgColor={"#efefef"}
             bgColorHover={"#e2e2e2"}
+            colorText={"#11"}
             fontWeight={600}
             px={"16px"}
             py={"15px"}

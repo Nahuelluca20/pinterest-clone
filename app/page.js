@@ -1,6 +1,28 @@
+"use client";
 import Head from "next/head";
+import {Stack, Box} from "@chakra-ui/react";
+import {useEffect, useState} from "react";
+
+import PinHome from "./components/Cards/PinHome";
+import {TestingService} from "./services/testing.service";
 
 export default function HomePage() {
+  const [dataPins, setDataPins] = useState([]);
+  const fetchData = async () => {
+    const result = await TestingService();
+    const data = result.data;
+
+    setDataPins(data);
+  };
+
+  useEffect(() => {
+    try {
+      fetchData();
+    } catch (err) {
+      console.error(err);
+    }
+  }, []);
+
   return (
     <>
       <Head>
@@ -9,6 +31,26 @@ export default function HomePage() {
         <meta content="width=device-width, initial-scale=1" name="viewport" />
         <link href="/favicon.ico" rel="icon" />
       </Head>
+      <Stack alignItems={"center"} py={10} spacing={0} w={"100%"}>
+        <Stack alignItems={"center"} spacing={0} w={"100%"}>
+          <Box
+            mx={{base: "20px", xl: 10}}
+            // style={{marginInline: "12px 6px"}}
+            sx={{columnCount: [1, 2, 3, 4, 6], columnGap: "12px"}}
+          >
+            {dataPins?.map((item) => (
+              <PinHome
+                key={item._id}
+                img={item.img}
+                link={item.link}
+                title={item.title}
+                userImg={item.userImg}
+                userName={item.userName}
+              />
+            ))}
+          </Box>
+        </Stack>
+      </Stack>
     </>
   );
 }

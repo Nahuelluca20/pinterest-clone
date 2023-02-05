@@ -8,7 +8,7 @@ function TodayCard3img({title, img1, img2, img3, upTitle}) {
       cursor={"pointer"}
       height={"306px"}
       spacing={0}
-      width={"408px"}
+      width={{base: "350px", md: "408px"}}
       zIndex={10}
     >
       <Flex
@@ -17,7 +17,7 @@ function TodayCard3img({title, img1, img2, img3, upTitle}) {
         overflow={"hidden"}
         position={"absolute"}
         spacing={0}
-        width={"408px"}
+        width={{base: "350px", md: "408px"}}
         zIndex={-10}
       >
         <img height={"196px"} src={img1} style={{objectFit: "cover"}} width={"135.98px"} />
@@ -33,10 +33,10 @@ function TodayCard3img({title, img1, img2, img3, upTitle}) {
         justifyContent={"end"}
         overflow={"hidden"}
         spacing={0}
-        width={"408px"}
+        width={{base: "350px", md: "408px"}}
         zIndex={1}
       >
-        <Stack pb={20} spacing={0}>
+        <Stack bg={"white"} color={"#111"} py={5} spacing={0}>
           <Text fontSize={"16px"} fontWeight={400} margin={0}>
             {upTitle}
           </Text>

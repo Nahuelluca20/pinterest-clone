@@ -12,7 +12,7 @@ import IconButton from "../Buttons/IconButton";
 
 import SearchBar from "./SearchBar";
 
-function Navbar({onClick}) {
+function Navbar({onClick, show}) {
   const [isSelected, setIsSelected] = useState({
     inicio: false,
     hoy: false,
@@ -38,9 +38,25 @@ function Navbar({onClick}) {
   }
 
   return (
-    <HStack bg={"white"} position={"fixed"} py={"16px"} spacing={10} width={"100%"} zIndex={50}>
+    <HStack
+      bg={"white"}
+      display={{base: "none", md: "flex"}}
+      position={"fixed"}
+      py={"16px"}
+      spacing={0}
+      width={"100%"}
+      zIndex={50}
+    >
       <Link as={NextLink} href="/">
-        <IconButton alt={"pinterest"} img={NavbarLogo} imgHeight={24} imgWidth={24} label="" />
+        <IconButton
+          alt={"pinterest"}
+          img={NavbarLogo}
+          imgContainerHeight={"48px"}
+          imgContainerWidth={"48px"}
+          imgHeight={24}
+          imgWidth={24}
+          label=""
+        />
       </Link>
       <LinkButton
         bgColor={isSelected.inicio ? "#111111" : "trasparent"}
@@ -56,12 +72,19 @@ function Navbar({onClick}) {
         text={"Hoy"}
         onClick={handleSelected}
       />
-      <Link color={"#111"} cursor={"pointer"} textAlign={"center"} textDecoration={"none"}>
+      <Link
+        color={"#111"}
+        cursor={"pointer"}
+        style={{textDecoration: "none"}}
+        textAlign={"center"}
+        textDecoration={"none"}
+      >
         <HStack
           bg={"trasparent"}
           borderRadius={"24px"}
-          ml={10}
+          ml={2}
           spacing={0}
+          style={{textDecoration: "none"}}
           width={"72px"}
           onClick={() => {
             setOpen(!open);
@@ -108,24 +131,28 @@ function Navbar({onClick}) {
           </Text>
         </Stack>
       </Link>
-      <SearchBar onClick={onClick} />
-      <HStack>
+      <SearchBar show={show} onClick={onClick} />
+      <HStack spacing={2}>
         <IconButton
           alt={"Notificaciones"}
           img={BellLogo}
+          imgContainerHeight={"48px"}
+          imgContainerWidth={"70px"}
           imgHeight={24}
           imgWidth={24}
           label={"Notificaciones"}
-          mtTooltip={10}
+          mtTooltip={2}
         />
 
         <IconButton
           alt={"Subir Imagen"}
           img={UploadLogo}
+          imgContainerHeight={"48px"}
+          imgContainerWidth={"70px"}
           imgHeight={24}
           imgWidth={24}
           label={"Subir Imagen"}
-          mtTooltip={10}
+          mtTooltip={2}
         />
 
         <Tooltip
@@ -135,14 +162,14 @@ function Navbar({onClick}) {
           color="white"
           fontSize={"13px"}
           label="Tu perfil"
-          mr={10}
-          mt={10}
-          p={10}
+          mr={3}
+          mt={2}
+          p={2}
         >
           <Link
             as={NextLink}
             href="/profile"
-            pr={5}
+            pr={10}
             textAlign={"center"}
             textDecoration={"none"}
             onClick={() => {
