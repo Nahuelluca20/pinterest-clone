@@ -137,23 +137,24 @@ function Navbar({onClick, show}) {
           alt={"Notificaciones"}
           img={BellLogo}
           imgContainerHeight={"48px"}
-          imgContainerWidth={"70px"}
+          imgContainerWidth={"80px"}
           imgHeight={24}
           imgWidth={24}
           label={"Notificaciones"}
           mtTooltip={2}
         />
-
-        <IconButton
-          alt={"Subir Imagen"}
-          img={UploadLogo}
-          imgContainerHeight={"48px"}
-          imgContainerWidth={"70px"}
-          imgHeight={24}
-          imgWidth={24}
-          label={"Subir Imagen"}
-          mtTooltip={2}
-        />
+        <Link as={NextLink} href="/pin-builder">
+          <IconButton
+            alt={"Subir Imagen"}
+            img={UploadLogo}
+            imgContainerHeight={"48px"}
+            imgContainerWidth={"50px"}
+            imgHeight={24}
+            imgWidth={24}
+            label={"Subir Imagen"}
+            mtTooltip={2}
+          />
+        </Link>
 
         <Tooltip
           aria-label={"Tu perfil"}

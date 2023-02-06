@@ -1,8 +1,7 @@
 "use client";
-"use client";
 import {useState, useEffect} from "react";
 import {getImageSize} from "react-image-size";
-import {Stack, Heading, HStack, Box, Image} from "@chakra-ui/react";
+import {Stack, Heading, HStack, Box, Image, Link, Text} from "@chakra-ui/react";
 import ButtonHovered from "app/components/Buttons/ButtonHovered";
 import FolloweingUserBox from "app/components/Cards/FolloweingUserBox";
 import IconButton from "app/components/Buttons/IconButton";
@@ -11,6 +10,8 @@ import Points from "app/components/assets/points.png";
 import Chain from "app/components/assets/chain.png";
 import Share from "app/components/assets/share.png";
 import {GetCardById} from "app/services/testing.service";
+import AddComment from "app/components/Inputs/AddComment";
+import Comments from "app/components/Cards/Comments";
 
 function PinView({params}) {
   const iconsButtons = [
@@ -23,6 +24,7 @@ function PinView({params}) {
     width: "",
     height: "",
   });
+  const comments = ["hola", "chau"];
 
   const {id} = params;
   const [dataPin, setDataPin] = useState([]);
@@ -55,7 +57,7 @@ function PinView({params}) {
 
   return (
     <Stack alignItems={"center"} my={8} width={"100%"}>
-      <Stack left={"40px"} mt={1} position={"fixed"}>
+      <Link bg={"white"} borderRadius={"999%"} href="/" left={"40px"} mt={1} position={"fixed"}>
         <IconButton
           alt="icon"
           img={LeftArrow}
@@ -66,10 +68,18 @@ function PinView({params}) {
           label=""
           mtTooltip=""
         />
-      </Stack>
-      <Box borderRadius={"30px"} boxShadow="2xl" display={"flex"} overflow={"hidden"} spacing={0}>
-        <Image alt="iamgen" height={imgSizes.height} src={dataPin.img} width={imgSizes.width} />
-        <Stack height={imgSizes.height} p={"32px"} width={"502px"}>
+      </Link>
+      <Box
+        borderRadius={"30px"}
+        boxShadow="2xl"
+        display={{base: "block", md: "flex"}}
+        overflow={"hidden"}
+        spacing={0}
+      >
+        <Stack>
+          <Image alt="iamgen" borderRadius={"30px"} src={dataPin.img} width={imgSizes.width} />
+        </Stack>
+        <Stack height={imgSizes.height} p={"32px"} width={{base: "375px", md: "502px"}}>
           <HStack justifyContent={"space-between"} spacing={0}>
             <HStack spacing={0}>
               {iconsButtons.map((icon) => (
@@ -102,6 +112,21 @@ function PinView({params}) {
               <FolloweingUserBox img={dataPin.userImg} userName={dataPin.userName} />
             </Stack>
           )}
+          <Stack pt={10}>
+            <Heading color={"#111"} fontSize={"20px"}>
+              Comentarios
+            </Heading>
+            {comments.length <= 0 ? (
+              <Text color={"#5f5f5f"} fontSize={"16px"}>
+                Todavía no hay comentarios. Agrega uno para iniciar la conversación.
+              </Text>
+            ) : (
+              comments.map((comment) => <Comments key={comment} commment={comment} />)
+            )}
+            <Box pt={5}>
+              <AddComment />
+            </Box>
+          </Stack>
         </Stack>
       </Box>
     </Stack>
