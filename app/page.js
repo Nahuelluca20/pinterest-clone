@@ -41,6 +41,7 @@ export default function HomePage() {
             {dataPins?.map((item) => (
               <PinHome
                 key={item._id}
+                id={item._id}
                 img={item.img}
                 link={item.link}
                 title={item.title}

@@ -1,17 +1,17 @@
-import {Stack, Text, Flex} from "@chakra-ui/react";
-import {Image} from "@chakra-ui/react";
+import {Stack, Text, Flex, Image} from "@chakra-ui/react";
+
 function PinSavesCard({pinName, totalPins, lastModificated, img1, img2, img3}) {
   return (
     <Stack cursor={"pointer"} my={{base: 3, lg: 0}} spacing={0}>
       <Stack borderRadius={"15px"} height={"157px"} overflow={"hidden"} spacing={0} width={"233px"}>
         <Flex>
           <Stack mr={"2px"} width={"100%"}>
-            <img height={"157px"} src={img1} style={{objectFit: "cover"}} width={"100%"} />
+            <Image height={"157px"} src={img1} style={{objectFit: "cover"}} width={"100%"} />
           </Stack>
           <Stack spacing={"2px"}>
             <Image
               alt="img2"
-              height={"10px"}
+              height={"78px"}
               src={img2}
               style={{objectFit: "cover"}}
               width={"77px"}
