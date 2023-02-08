@@ -9,7 +9,7 @@ import LeftArrow from "app/components/assets/left-arrow.png";
 import Points from "app/components/assets/points.png";
 import Chain from "app/components/assets/chain.png";
 import Share from "app/components/assets/share.png";
-import {GetCardById} from "app/services/testing.service";
+import {GetCardById, AddCommentService} from "app/services/testing.service";
 import AddComment from "app/components/Inputs/AddComment";
 import Comments from "app/components/Cards/Comments";
 
@@ -24,7 +24,6 @@ function PinView({params}) {
     width: "",
     height: "",
   });
-  const comments = ["hola", "chau"];
 
   const {id} = params;
   const [dataPin, setDataPin] = useState([]);
@@ -34,8 +33,6 @@ function PinView({params}) {
 
     setDataPin(data);
   };
-
-  console.log(dataPin);
 
   useEffect(() => {
     try {
@@ -53,6 +50,13 @@ function PinView({params}) {
       width: width,
       height: height,
     });
+  };
+
+  const [value, setValue] = useState("");
+  const upLoadComment = async (id, value) => {
+    await AddCommentService(id, value);
+    fetchData(id);
+    await setValue("");
   };
 
   return (
@@ -116,15 +120,15 @@ function PinView({params}) {
             <Heading color={"#111"} fontSize={"20px"}>
               Comentarios
             </Heading>
-            {comments.length <= 0 ? (
+            {dataPin?.comments?.length <= 0 ? (
               <Text color={"#5f5f5f"} fontSize={"16px"}>
                 Todavía no hay comentarios. Agrega uno para iniciar la conversación.
               </Text>
             ) : (
-              comments.map((comment) => <Comments key={comment} commment={comment} />)
+              dataPin?.comments?.map((comment) => <Comments key={comment} commment={comment} />)
             )}
             <Box pt={5}>
-              <AddComment />
+              <AddComment id={id} setValue={setValue} upLoadComment={upLoadComment} value={value} />
             </Box>
           </Stack>
         </Stack>
