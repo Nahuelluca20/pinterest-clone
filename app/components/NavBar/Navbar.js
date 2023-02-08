@@ -40,14 +40,14 @@ function Navbar({onClick, show}) {
   return (
     <HStack
       bg={"white"}
-      display={"flex"}
+      display={{base: "block", md: "flex"}}
       position={"fixed"}
       py={"16px"}
       spacing={0}
       width={"100%"}
       zIndex={50}
     >
-      <HStack>
+      <HStack justifyContent={{base: "center", md: "start"}}>
         <Link as={NextLink} href="/">
           <IconButton
             alt={"pinterest"}
@@ -134,7 +134,7 @@ function Navbar({onClick, show}) {
         </Link>
       </HStack>
       <SearchBar show={show} onClick={onClick} />
-      <HStack spacing={2}>
+      <HStack justifyContent={{base: "center", md: "start"}} pt={{base: 2, md: 0}} spacing={2}>
         <IconButton
           alt={"Notificaciones"}
           img={BellLogo}
