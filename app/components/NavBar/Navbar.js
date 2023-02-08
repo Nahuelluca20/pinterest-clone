@@ -40,14 +40,14 @@ function Navbar({onClick, show}) {
   return (
     <HStack
       bg={"white"}
-      display={{base: "block", md: "flex"}}
+      display={"flex"}
       position={"fixed"}
       py={"16px"}
       spacing={0}
       width={"100%"}
       zIndex={50}
     >
-      <HStack justifyContent={{base: "center", md: "start"}}>
+      <HStack>
         <Link as={NextLink} href="/">
           <IconButton
             alt={"pinterest"}
@@ -62,6 +62,7 @@ function Navbar({onClick, show}) {
         <LinkButton
           bgColor={isSelected.inicio ? "#111111" : "trasparent"}
           color={isSelected.inicio ? "white" : "#111"}
+          display={{base: "none", md: "flex"}}
           href={"/"}
           text={"Inicio"}
           onClick={handleSelected}
@@ -69,6 +70,7 @@ function Navbar({onClick, show}) {
         <LinkButton
           bgColor={isSelected.hoy ? "#111111" : "trasparent"}
           color={isSelected.hoy ? "white" : "#111"}
+          display={{base: "none", md: "flex"}}
           href={"/today"}
           text={"Hoy"}
           onClick={handleSelected}
@@ -76,6 +78,7 @@ function Navbar({onClick, show}) {
         <Link
           color={"#111"}
           cursor={"pointer"}
+          display={{base: "none", md: "flex"}}
           style={{textDecoration: "none"}}
           textAlign={"center"}
           textDecoration={"none"}

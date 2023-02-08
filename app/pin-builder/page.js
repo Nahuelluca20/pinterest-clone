@@ -39,13 +39,19 @@ function PinBuilder() {
         </Link>
       ) : (
         <Stack>
-          <Stack bg={"white"} borderRadius={"20px"} mt={20} p={"40px"} width={"700px"}>
+          <Stack
+            bg={"white"}
+            borderRadius={"20px"}
+            mt={20}
+            p={"40px"}
+            width={{base: "300px", md: "700px"}}
+          >
             <Text fontSize={"40px"} fontWeight={400}>
               Subir Imagen
             </Text>
             <Stack pt={10} spacing={10}>
               <Input
-                fontSize="36px"
+                fontSize={{base: "30px", md: "36px"}}
                 pb={3}
                 placeholder="Agrega el título"
                 value={title}
