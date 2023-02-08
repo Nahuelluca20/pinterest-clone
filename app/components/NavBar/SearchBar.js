@@ -6,6 +6,9 @@ import SearchLogo from "../assets/search.png";
 import RecentlySearch from "../Cards/RecentlySearch";
 import CardSearch from "../Cards/CardSearch";
 
+import gridLine from "./gridLineData";
+import gridLine2 from "./gridLineData2";
+
 function SeachBar({onClick, show}) {
   const RecentlySearchItems = [
     {
@@ -24,10 +27,10 @@ function SeachBar({onClick, show}) {
       id: 4,
       text: "attack on titan",
     },
-    // {
-    //   id: 5,
-    //   text: "men style",
-    // },
+    {
+      id: 5,
+      text: "men style",
+    },
   ];
 
   const [items, setItem] = useState(RecentlySearchItems);
@@ -36,9 +39,14 @@ function SeachBar({onClick, show}) {
     setItem((item) => item.filter((item) => item.id !== id));
   }
 
+  function handleDelete(id) {
+    setItem((item) => item.filter((item) => item.id !== id));
+  }
+
   return (
     <Stack
       alignItems="center"
+      display={{base: "none", md: "block"}}
       justifyContent="center"
       position={"relative"}
       spacing={0}
@@ -99,11 +107,11 @@ function SeachBar({onClick, show}) {
                 Ideas para ti
               </Text>
               <Grid gap={4} gridTem={"wrap"} templateColumns={"repeat(4, 180px)"}>
-                {items.map((item) => {
-                  return <CardSearch key={item.id} />;
+                {gridLine?.map((item) => {
+                  return <CardSearch key={item.id} img={item.img} text={item.text} />;
                 })}
-                {items.map((item) => {
-                  return <CardSearch key={item.id} />;
+                {gridLine2?.map((item) => {
+                  return <CardSearch key={item.id} img={item.img} text={item.text} />;
                 })}
               </Grid>
             </Stack>
@@ -113,11 +121,11 @@ function SeachBar({onClick, show}) {
                 Populares en pinterest
               </Text>
               <Grid gap={4} gridTem={"wrap"} templateColumns={"repeat(4, 180px)"}>
-                {items.map((item) => {
-                  return <CardSearch key={item.id} />;
+                {gridLine2?.map((item) => {
+                  return <CardSearch key={item.id} img={item.img} text={item.text} />;
                 })}
-                {items.map((item) => {
-                  return <CardSearch key={item.id} />;
+                {gridLine?.map((item) => {
+                  return <CardSearch key={item.id} img={item.img} text={item.text} />;
                 })}
               </Grid>
             </Stack>

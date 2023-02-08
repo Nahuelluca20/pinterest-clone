@@ -40,97 +40,99 @@ function Navbar({onClick, show}) {
   return (
     <HStack
       bg={"white"}
-      display={{base: "none", md: "flex"}}
+      display={"flex"}
       position={"fixed"}
       py={"16px"}
       spacing={0}
       width={"100%"}
       zIndex={50}
     >
-      <Link as={NextLink} href="/">
-        <IconButton
-          alt={"pinterest"}
-          img={NavbarLogo}
-          imgContainerHeight={"48px"}
-          imgContainerWidth={"48px"}
-          imgHeight={24}
-          imgWidth={24}
-          label=""
+      <HStack>
+        <Link as={NextLink} href="/">
+          <IconButton
+            alt={"pinterest"}
+            img={NavbarLogo}
+            imgContainerHeight={"48px"}
+            imgContainerWidth={"48px"}
+            imgHeight={24}
+            imgWidth={24}
+            label=""
+          />
+        </Link>
+        <LinkButton
+          bgColor={isSelected.inicio ? "#111111" : "trasparent"}
+          color={isSelected.inicio ? "white" : "#111"}
+          href={"/"}
+          text={"Inicio"}
+          onClick={handleSelected}
         />
-      </Link>
-      <LinkButton
-        bgColor={isSelected.inicio ? "#111111" : "trasparent"}
-        color={isSelected.inicio ? "white" : "#111"}
-        href={"/"}
-        text={"Inicio"}
-        onClick={handleSelected}
-      />
-      <LinkButton
-        bgColor={isSelected.hoy ? "#111111" : "trasparent"}
-        color={isSelected.hoy ? "white" : "#111"}
-        href={"/today"}
-        text={"Hoy"}
-        onClick={handleSelected}
-      />
-      <Link
-        color={"#111"}
-        cursor={"pointer"}
-        style={{textDecoration: "none"}}
-        textAlign={"center"}
-        textDecoration={"none"}
-      >
-        <HStack
-          bg={"trasparent"}
-          borderRadius={"24px"}
-          ml={2}
-          spacing={0}
+        <LinkButton
+          bgColor={isSelected.hoy ? "#111111" : "trasparent"}
+          color={isSelected.hoy ? "white" : "#111"}
+          href={"/today"}
+          text={"Hoy"}
+          onClick={handleSelected}
+        />
+        <Link
+          color={"#111"}
+          cursor={"pointer"}
           style={{textDecoration: "none"}}
-          width={"72px"}
-          onClick={() => {
-            setOpen(!open);
-          }}
+          textAlign={"center"}
+          textDecoration={"none"}
         >
-          <Heading as={"h2"} fontSize={"16px"} fontWeight={600}>
-            Crear
-          </Heading>
-          <ChevronDownIcon h={25} w={25} />
-        </HStack>
-        <Stack
-          bg={"white"}
-          border={"1px solid white"}
-          borderRadius={"16px"}
-          boxShadow={"0 0 8px rgb(0 0 0 / 10%);"}
-          display={open ? "block" : "none"}
-          padding={8}
-          position={"absolute"}
-          spacing={0}
-        >
-          <Text
-            _hover={{bg: "#E9E9E9"}}
-            borderRadius={"8px"}
-            fontSize={"16px"}
-            fontWeight={600}
-            margin={0}
-            pl={"10px"}
-            pr={"20px"}
-            py={"11px"}
+          <HStack
+            bg={"trasparent"}
+            borderRadius={"24px"}
+            ml={2}
+            spacing={0}
+            style={{textDecoration: "none"}}
+            width={"72px"}
+            onClick={() => {
+              setOpen(!open);
+            }}
           >
-            Crea un Idea Pin
-          </Text>
-          <Text
-            _hover={{bg: "#E9E9E9"}}
-            align={"start"}
-            borderRadius={"8px"}
-            fontSize={"16px"}
-            fontWeight={600}
-            pl={"10px"}
-            pr={"20px"}
-            py={"11px"}
+            <Heading as={"h2"} fontSize={"16px"} fontWeight={600}>
+              Crear
+            </Heading>
+            <ChevronDownIcon h={25} w={25} />
+          </HStack>
+          <Stack
+            bg={"white"}
+            border={"1px solid white"}
+            borderRadius={"16px"}
+            boxShadow={"0 0 8px rgb(0 0 0 / 10%);"}
+            display={open ? "block" : "none"}
+            padding={8}
+            position={"absolute"}
+            spacing={0}
           >
-            Crear Pin
-          </Text>
-        </Stack>
-      </Link>
+            <Text
+              _hover={{bg: "#E9E9E9"}}
+              borderRadius={"8px"}
+              fontSize={"16px"}
+              fontWeight={600}
+              margin={0}
+              pl={"10px"}
+              pr={"20px"}
+              py={"11px"}
+            >
+              Crea un Idea Pin
+            </Text>
+            <Text
+              _hover={{bg: "#E9E9E9"}}
+              align={"start"}
+              borderRadius={"8px"}
+              fontSize={"16px"}
+              fontWeight={600}
+              pl={"10px"}
+              pr={"20px"}
+              py={"11px"}
+            >
+              Crear Pin
+            </Text>
+          </Stack>
+        </Link>
+      </HStack>
       <SearchBar show={show} onClick={onClick} />
       <HStack spacing={2}>
         <IconButton
