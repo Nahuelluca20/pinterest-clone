@@ -1,15 +1,15 @@
 import axios from "axios";
 
 export const TestingService = () => {
-  return axios.get("https://pinteres-clone-api.onrender.com/api/card");
+  return axios.get("https://pinterest-clone-api-v1.vercel.app/api/card");
 };
 
 export const GetCardById = (id) => {
-  return axios.get(`https://pinteres-clone-api.onrender.com/api/card/${id}`);
+  return axios.get(`https://pinterest-clone-api-v1.vercel.app/api/card/${id}`);
 };
 
 export const AddCommentService = (id, comment) => {
-  return axios.patch(`https://pinteres-clone-api.onrender.com/api/card/${id}`, {
+  return axios.patch(`https://pinterest-clone-api-v1.vercel.app/api/card/${id}`, {
     comments: comment,
   });
 };
